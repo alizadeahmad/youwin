@@ -2,15 +2,15 @@
   <v-app>
   	<div class="header">
 		<div class="header-sec">
-			<img src="~/assets/images/home/icon1.png" style="width:42px;margin:9px;">
+			<img src="/images/home/icon1.png" style="width:42px;margin:9px;">
 		</div>
 		<div class="header-sec text-center">
-			<img src="~/assets/images/home/logo.png" style="height:42px;margin:9px;">
+			<img src="/images/home/logo.png" style="height:42px;margin:9px;">
 		</div>
 		<div class="header-sec text-left">
 			<div v-if="selectedShop">
-				<img src="~/assets/images/home/icon2.png" style="width:42px;margin:9px;">
-				<img src="~/assets/images/home/ok.png" style="width:38px;margin:11px 0 11px 11px;border-radius:10px;">
+				<img src="/images/home/icon2.png" style="width:42px;margin:9px 5px;">
+				<img src="/images/home/ok.png" style="width:38px;margin:11px 0 11px 11px;border-radius:10px;">
 			</div>
 		</div>
   	</div>
@@ -18,25 +18,9 @@
   		<Nuxt />
   	</div>
   	<div class="footer">
-		<div class="footer-sec">
-			<img src="~/assets/images/home/icon3.png">
-			<div class="fs-10">خانه</div>
-		</div>
-		<div class="footer-sec">
-			<img src="~/assets/images/home/icon4.png">
-			<div class="fs-10">دسته بندی</div>
-		</div>
-		<div class="footer-sec">
-			<img src="~/assets/images/home/icon5.png">
-			<div class="fs-10">سبد خرید</div>
-		</div>
-		<div class="footer-sec">
-			<img src="~/assets/images/home/icon6.png">
-			<div class="fs-10">سفارشات</div>
-		</div>
-		<div class="footer-sec">
-			<img src="~/assets/images/home/icon7.png">
-			<div class="fs-10">لیست خرید</div>
+		<div v-for="(menu, i) in menus" :key="menu.label" class="footer-sec" :class="{'primary--text': wmenu == i}" @click="menuSit(i)">
+			<img :src="menu.img" />
+			<div class="fs-10">{{ menu.label }}</div>
 		</div>
   	</div>
   </v-app>
@@ -46,6 +30,19 @@
 export default{
 	data(){
 		return{
+			menus:[
+				{img: '/images/home/icon3.png', label: 'خانه'},
+				{img: '/images/home/icon4.png', label: 'دسته بندی'},
+				{img: '/images/home/icon5.png', label: 'سبد خرید'},
+				{img: '/images/home/icon6.png', label: 'سفارشات'},
+				{img: '/images/home/icon7.png', label: 'لیست خرید'}
+			],
+			wmenu: 0,
+		}
+	},
+	methods:{
+		menuSit(i){
+			this.wmenu = i;
 		}
 	},
 	computed:{
@@ -67,6 +64,7 @@ export default{
 	height: 60px;
 	box-shadow: 0 0 1px rgba(35,40,45,.25);
 	display: flex;
+	z-index: 98;
 }
 .header-sec{
 	flex: 1;
@@ -84,6 +82,7 @@ export default{
 	height: 60px;
 	box-shadow: 0 0 1px rgba(35,40,45,.25);
 	display: flex;
+	z-index: 99;
 }
 .footer-sec{
 	flex: 1;

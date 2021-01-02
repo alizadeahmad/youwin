@@ -10,14 +10,12 @@
                             v-model="address"
                             label="ورود آدرس کامل"
                             placeholder="آدرس کامل خود را وارد کنید"
-                            required>
-                        </a-input>
+                            required />
                         <a-input
                             v-model="addressName"
                             label="عنوان آدرس"
                             placeholder="عنوان آدرس منتخب"
-                            required>
-                        </a-input>
+                            required />
                         <v-btn
                             @click="registerAddress"
                             class="mt-10"
@@ -80,7 +78,7 @@ export default {
 
 <style scoped>
 .d{ /* temp */
-    background: url('~assets/images/tmp/map.png');
+    background: url('/images/tmp/map.png');
     background-size: auto 100vh;
 }
 .map-wrapper{

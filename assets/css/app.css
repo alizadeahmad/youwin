@@ -21,10 +21,26 @@ h1{
 .fs-10{font-size: 10px !important;}
 .fs-11{font-size: 11px !important;}
 .fs-12{font-size: 12px !important;}
+.fs-13{font-size: 13px !important;}
 .fs-14{font-size: 14px !important;}
+.fs-15{font-size: 15px !important;}
 .fs-16{font-size: 16px !important;}
+.fs-17{font-size: 17px !important;}
+.fs-18{font-size: 18px !important;}
+
+.fw-100{font-weight: 100 !important;}
+.fw-200{font-weight: 200 !important;}
+.fw-300{font-weight: 300 !important;}
+.fw-400{font-weight: 400 !important;}
+.fw-500{font-weight: 500 !important;}
+.fw-600{font-weight: 600 !important;}
 
 .pos-abs{position: absolute;}
+
+.br-5{border-radius: 5px !important;}
+.br-10{border-radius: 10px !important;}
+.br-15{border-radius: 15px !important;}
+.br-20{border-radius: 20px !important;}
 
 /* MARGINS */
 

@@ -1,7 +1,7 @@
 <template>
     <div class="primary w-100 h-100">
         <div class="logo-wrapper text-center">
-            <img class="logo" src="~/assets/images/login/logo.png">
+            <img class="logo" src="/images/login/logo.png">
         </div>
         <div class="form-wrapper text-center">
             <div v-if="page1">
@@ -11,8 +11,7 @@
                         v-model="mobile"
                         label="شماره همراه"
                         icon="phone_android"
-                        required>
-                    </a-input>
+                        required />
                     <div v-if="wrongMobile" class="red--text fs-12">شماره وارد شده اشتباه است</div>
                     <v-btn
                         @click="getPhone"
@@ -37,8 +36,7 @@
                         v-model="verify"
                         label="ورود کد تاییدیه"
                         icon="lock"
-                        required>
-                    </a-input>
+                        required />
                     <div v-if="wrongCode" class="red--text fs-12">کد وارد شده اشتباه است</div>
                     <v-btn
                         @click="verifyMobile"
@@ -55,22 +53,19 @@
             </div>
             <div v-if="page3">
                 <div class="logan--text fs-14 mb-15">اطلاعات خود را وارد کنید</div>
-                <div class="w-80 mx-auto">
+                <div class="w-80 pb-6 mx-auto">
                     <a-input
                         v-model="firstname"
                         label="نام شما"
-                        required>
-                    </a-input>
+                        required />
                     <a-input
                         v-model="lastname"
                         label="نام خانوادگی"
-                        required>
-                    </a-input>
+                        required />
                     <a-input
                         v-model="reagentCode"
                         label="کد معرف"
-                        required>
-                    </a-input>
+                        required />
                     <v-btn
                         to="/map"
                         class="mt-10"

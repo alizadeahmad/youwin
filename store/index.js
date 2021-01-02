@@ -1,6 +1,6 @@
 export const state = () => ({
 	_home:{
-		selectedShop: false,
+		selectedShop: true,
 	}
 });
 

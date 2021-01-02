@@ -1,42 +1,89 @@
 <template>
     <div class="">
-        سلام
-        <button class="primary" @click="oooopppp">change1</button>
-        <br>
-        <p>s1</p>
-        <p>s2</p>
-        <p>s3</p>
-        <p>s4</p>
-        <p>s5</p>
-        <p>s6</p>
-        <p>s7</p>
-        <p>s8</p>
-        <p>s9</p>
-        <p>s10</p>
-        <p>s11</p>
-        <p>s12</p>
-        <p>s13</p>
-        <p>s14</p>
-        <p>s15</p>
-        <p>s16</p>
-        <p>s17</p>
-        <p>s18</p>
-        <p>s19</p>
-        <p>s20</p>
-        <p>s21</p>
-        <p>s22</p>
-        <p>s23</p>
-        <p>s24</p>
-        <p>s25</p>
-        <p>s26</p>
+        <div class="current-address accent--text fs-13 fw-500">
+            آدرس من:
+            <span>
+                <span class="mr-1 primary--text">{{ address.name }}</span>
+                <span class="gray--text fw-300">{{ address.address }}</span>
+            </span>
+            <span class="float-left">
+                <i class="material-icons success--text fs-18">sync_alt</i>
+            </span>
+        </div>
+        <div class="slider-default mt-5">
+            <div class="swiper-wrapper">
+                <SwiperSlideHome v-for="i in 5"
+                    link="/"
+                    title="12"
+                    className="br-15"
+                    image="/images/home/slide1.png" />
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="slider-categories mt-2">
+            <div class="swiper-wrapper">
+                <SwiperSlideHome v-for="i in 10"
+                    link="/"
+                    title="12"
+                    className="br-10"
+                    image="/images/home/slide2.png" />
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="search mt-2">
+            <a-input
+                className="br-10"
+                icon="search"
+                placeholder="جستجو..." />
+        </div>
+
+        <div class="products-box">
+            <div class="darkGray--text fs-14 mb-2">پیشنهاد روز</div>
+            <div class="swiper-wrapper">
+                <SwiperSlideProduct v-for="i in 10"
+                    link="/"
+                    name="گوشت چرخ کرده مهیا"
+                    priceDiscount="320000"
+                    price="300000"
+                    image="/images/home/product.png" />
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import Swiper from 'swiper';
+import 'swiper/css/swiper.css';
 export default {
     layout: 'home',
+    mounted() {
+        new Swiper('.slider-default', {
+            slidesPerView: 'auto',
+            // centeredSlides: true,
+            spaceBetween: 20,
+        });
+        new Swiper('.slider-categories', {
+            slidesPerView: 'auto',
+            // centeredSlides: true,
+            spaceBetween: 10,
+        });
+        new Swiper('.products-box', {
+            slidesPerView: 'auto',
+            // centeredSlides: true,
+            spaceBetween: 15,
+        });
+    },
     data(){
         return{
+            address:{
+                name: 'خونه',
+                address: 'یزد امام شهر، انتهای بلوار کارگر',
+            },
+            sliders:[
+                {img:'', link:''}
+            ]
         }
     },
     methods:{
@@ -46,6 +93,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-</style>

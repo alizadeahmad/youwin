@@ -1,7 +1,7 @@
 <template>
     <div class="a-input-wrapper mb-6">
     	<label>{{ label }}</label>
-    	<input type="text" :value="value" @input="$emit('input', $event.target.value)" :placeholder="placeholder">
+    	<input type="text" :value="value" @input="$emit('input', $event.target.value)" :placeholder="placeholder" :class="className">
     	<i class="material-icons">{{ icon }}</i>
     </div>
 </template>
@@ -17,6 +17,9 @@ export default{
 		},
 		value:{
 			type: String,
+		},
+		className:{
+			type: String
 		},
 		placeholder:{
 			type: String,

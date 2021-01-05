@@ -5,6 +5,8 @@
             <li><nuxt-link to="/login">login</nuxt-link></li>
             <li><nuxt-link to="/map">map</nuxt-link></li>
             <li><nuxt-link to="/home">home</nuxt-link></li>
+            <li><nuxt-link to="/category">category</nuxt-link></li>
+            <li><nuxt-link to="/cart">cart</nuxt-link></li>
         </ul>
     </div>
 </template>

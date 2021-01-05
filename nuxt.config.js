@@ -74,7 +74,7 @@ export default {
           secondary: '#33cf86',
           info: colors.teal.lighten1,
           warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
+          error: '#f1224c',
           success: '#8cc152', 
 
           // aa

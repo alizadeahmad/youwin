@@ -1,5 +1,27 @@
 <template>
   <v-app>
+
+    <transition name="fade">
+        <div class="modal" v-if="!modalSelectShop" @click="closeModalSelectShop">
+            <div class="modal-wrapper pb-4" @click.stop>
+                <div class="modal-header text-center fs-14 gray--text mb-4">انتخاب فروشگاه</div>
+                <div class="modal-body">
+                    <div class="shops" @click="selectedShop(i)" v-for="i in 3">
+                        <div class="shop-logo">
+                            <img class="logo" src="/images/home/ok.png">
+                            <Stars rate="3" class="shop-star"/>
+                        </div>
+                        <div class="shop-name pt-1 pr-3">
+                            <h1 class="primary--text fs-14">فروشگاه افق کوروش {{ i }}</h1>
+                            <div class="gray--text mt-3 fs-11">یزد، بلوار 22 بهمن، جنب چرخ گردون</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </transition>
+
   	<div class="header">
 		<div class="header-sec">
 			<img src="/images/home/icon1.png" style="width:42px;margin:9px;">
@@ -10,7 +32,7 @@
 		<div class="header-sec text-left">
 			<div v-if="selectedShop">
 				<img src="/images/home/icon2.png" style="width:42px;margin:9px 5px;">
-				<img src="/images/home/ok.png" style="width:38px;margin:11px 0 11px 11px;border-radius:10px;">
+				<img src="/images/home/ok.png" style="width:38px;margin:11px 0 11px 11px;border-radius:10px;" @click="changeShop">
 			</div>
 		</div>
   	</div>
@@ -18,9 +40,12 @@
   		<Nuxt />
   	</div>
   	<div class="footer">
-		<div v-for="(menu, i) in menus" :key="menu.label" class="footer-sec" :class="{'primary--text': wmenu == i}" @click="menuSit(i)">
-			<img :src="menu.img" />
-			<div class="fs-10">{{ menu.label }}</div>
+		<div v-for="(menu, i) in menus" :key="menu.label" class="footer-sec" @click="menuSit(i)">
+			<nuxt-link :to="menu.link" :class="{'primary--text': wmenu == i}">
+				<div class="cart-count" v-if="i == 2 && _CART.count">{{ _CART.count }}</div>
+				<img :src="wmenu == i ? menu.img : menu.img_d" />
+				<div class="fs-10">{{ menu.label }}</div>
+			</nuxt-link>
 		</div>
   	</div>
   </v-app>
@@ -31,25 +56,40 @@ export default{
 	data(){
 		return{
 			menus:[
-				{img: '/images/home/icon3.png', label: 'خانه'},
-				{img: '/images/home/icon4.png', label: 'دسته بندی'},
-				{img: '/images/home/icon5.png', label: 'سبد خرید'},
-				{img: '/images/home/icon6.png', label: 'سفارشات'},
-				{img: '/images/home/icon7.png', label: 'لیست خرید'}
-			],
-			wmenu: 0,
+				{link:'/home', img: '/images/home/home.png', img_d: '/images/home/home_d.png', label: 'خانه'},
+				{link:'/category', img: '/images/home/menu.png', img_d: '/images/home/menu_d.png', label: 'دسته بندی'},
+				{link:'/cart', img: '/images/home/shoppingcart.png', img_d: '/images/home/shoppingcart_d.png', label: 'سبد خرید'},
+				{link:'', img: '/images/home/my_order.png', img_d: '/images/home/my_order_d.png', label: 'سفارشات'},
+				{link:'', img: '/images/home/shoppinglist.png', img_d: '/images/home/shoppinglist_d.png', label: 'لیست خرید'}
+			]
 		}
 	},
 	methods:{
 		menuSit(i){
-			this.wmenu = i;
-		}
+            this.$store.commit('_HOME', ['wmenu', i]);
+		},
+		changeShop(){
+            this.$store.commit('_HOME', ['selectedShop', null]);
+		},
+        closeModalSelectShop(){
+
+        },
+        selectedShop(i){
+            this.$store.commit('_HOME', ['selectedShop', i]);
+        }
 	},
 	computed:{
-		selectedShop() {
-			return this.$store.state._home.selectedShop;
-		}
-	}
+		wmenu(){
+            return this.$store.state._home.wmenu;
+		},
+        _CART() {
+            let _cart = this.$store.state._CART;
+            return _cart;
+        },
+        modalSelectShop(){
+            return this.$store.state._home.selectedShop;
+        }
+    },
 
 };
 </script>
@@ -86,11 +126,27 @@ export default{
 }
 .footer-sec{
 	flex: 1;
+	position: relative;
 	text-align: center;
+}
+.footer-sec a{
+	text-decoration: none;
 	color: gray;
 }
 .footer-sec img{
-	width:36px;
-	margin:7px 7px -14px;
+	width:32px;
+	margin:7px 7px -10px;
+}
+.footer .cart-count{
+	position: absolute;
+    font-size: 10px;
+    background: #33cf86;
+    min-width: 16px;
+    height: 16px;
+    color: #fff;
+    line-height: 18px;
+    border-radius: 50%;
+    top: 8px;
+    left: calc(50% + 5px);
 }
 </style>

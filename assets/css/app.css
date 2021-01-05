@@ -73,11 +73,12 @@ h1{
 }
 .modal-wrapper{
 	width: 90%;
-	height: auto;
+	max-height: 90vh;
 	background-color: #fff;
 	box-shadow: 0 1px 10px rgba(0,0,0,.1);
 	border-radius: 10px;
 	padding: 30px 20px;
+	overflow: auto;
 }
 .modal-header{
 	/*padding: */

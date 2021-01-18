@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <div class="shop-img">
+        <div class="shop-img-wrapper">
             <div class="slider-categories mt-2">
                 <div class="swiper-wrapper">
                     <SwiperSlideHome v-for="i in 10"
@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <img src="/images/tmp/1 (2).jpg">
+            <img class="shop-img" src="/images/tmp/1 (2).jpg">
         </div>
 
         <div class="category">
@@ -51,14 +51,14 @@
 
 
 
-            <div class="about fs-14 gray--text">
+            <div class="about fs-14 gray--text hide">
                 درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما 
                 درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما
                 درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما درباره ما 
             </div>
 
-            <div class="fs-14 mt-8 mb-2">اطلاعات تماس</div>
-            <div class="contact fs-14">
+            <div class="fs-14 mt-8 mb-2 hide">اطلاعات تماس</div>
+            <div class="contact fs-14 hide">
                 <div>
                     <span class="gray--text">تلفن تماس:</span>
                     <span class="float-left">09134545624</span>
@@ -122,7 +122,13 @@ export default {
 .ex-topmenu-sec .c{
     width: 28px;
 }
-.shop-img img{
+.slider-categories{
+    position: absolute;
+}
+.swiper-slide{
+    background-color: transparent;
+}
+.shop-img{
     width: 100%;
 }
 .category{
@@ -175,7 +181,9 @@ export default {
 
 
 
-
+.hide{
+    display: none;
+}
 .about,
 .contact{
     padding: 20px 10px;

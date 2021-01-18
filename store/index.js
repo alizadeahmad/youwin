@@ -1,6 +1,7 @@
 export const state = () => ({
 	_CART: {count:0, products:[]},
 	_home:{
+		title: '',
 		wmenu: 0,
 		selectedShop: null,
 	}

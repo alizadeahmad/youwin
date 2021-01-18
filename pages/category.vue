@@ -1,9 +1,9 @@
 <template>
     <div class="categories">
-        <div class="category" v-for="i in 10">
+        <nuxt-link class="category black--text" v-for="i in 5" to="/categorySelect" :key="i">
             <img src="/images/home/product.png">
             <p>مواد پروتئینی</p>
-        </div>
+        </nuxt-link>
     </div>
 </template>
 
@@ -31,6 +31,7 @@ export default {
     margin: 2%;
     font-size: 14px;
     padding: 10px;
+    text-decoration: none;
 }
 .category img{
     border-radius: 5px;

@@ -24,14 +24,14 @@
 
   	<div class="header">
 		<div class="header-sec">
-			<img src="/images/home/icon1.png" style="width:42px;margin:9px;">
+			<img src="/images/home/icon1.png" style="width:42px;margin:9px;" @click="goAcoount">
 		</div>
 		<div class="header-sec text-center">
 			<img src="/images/home/logo.png" style="height:42px;margin:9px;">
 		</div>
 		<div class="header-sec text-left">
 			<div v-if="selectedShop">
-				<img src="/images/home/icon2.png" style="width:42px;margin:9px 5px;">
+				<img src="/images/home/icon2.png" style="width:42px;margin:9px 5px;" @click="goNotif">
 				<img src="/images/home/ok.png" style="width:38px;margin:11px 0 11px 11px;border-radius:10px;" @click="changeShop">
 			</div>
 		</div>
@@ -59,8 +59,8 @@ export default{
 				{link:'/home', img: '/images/home/home.png', img_d: '/images/home/home_d.png', label: 'خانه'},
 				{link:'/category', img: '/images/home/menu.png', img_d: '/images/home/menu_d.png', label: 'دسته بندی'},
 				{link:'/cart', img: '/images/home/shoppingcart.png', img_d: '/images/home/shoppingcart_d.png', label: 'سبد خرید'},
-				{link:'', img: '/images/home/my_order.png', img_d: '/images/home/my_order_d.png', label: 'سفارشات'},
-				{link:'', img: '/images/home/shoppinglist.png', img_d: '/images/home/shoppinglist_d.png', label: 'لیست خرید'}
+				{link:'/orders', img: '/images/home/my_order.png', img_d: '/images/home/my_order_d.png', label: 'سفارشات'},
+				{link:'/list', img: '/images/home/shoppinglist.png', img_d: '/images/home/shoppinglist_d.png', label: 'لیست خرید'}
 			]
 		}
 	},
@@ -76,6 +76,12 @@ export default{
         },
         selectedShop(i){
             this.$store.commit('_HOME', ['selectedShop', i]);
+        },
+        goAcoount(){
+        	this.$router.push('/account');
+        },
+        goNotif(){
+        	this.$router.push('/notif');
         }
 	},
 	computed:{

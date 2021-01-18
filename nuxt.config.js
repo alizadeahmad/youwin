@@ -28,6 +28,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/helpers.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -79,6 +80,7 @@ export default {
 
           // aa
           gray: '#979896',
+          lightgray: '#f2f2f2',
           darkGray: '#5d5e5d',
           logan: '#9696b4',
           navy: '#050244',

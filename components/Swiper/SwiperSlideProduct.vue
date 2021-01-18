@@ -6,8 +6,8 @@
 		<div class="product-name">{{ name }}</div>
 		<div class="ac-section text-right pr-2">
 			<div class="d-ib mt-3">
-				<div class="product-price-discount fs-10 gray--text"><span class="price-discount">{{ cn(priceDiscount) }}</span> <span class="currency">ریال</span></div>
-				<div class="product-price primary--text fs-14">{{ cn(price) }} <span class="currency gray--text">ریال</span></div>
+				<div class="product-price-discount fs-10 gray--text"><span class="price-discount">{{ $cn(priceDiscount) }}</span> <span class="currency">ریال</span></div>
+				<div class="product-price primary--text fs-14">{{ $cn(price) }} <span class="currency gray--text">ریال</span></div>
 			</div>
 			<div class="add-cart accent d-ib" @click="isAddedCheck">
 				<img src="/images/home/shoppingcart_w.png">
@@ -69,13 +69,14 @@ export default{
 			};
             this.$store.commit('_CART_SYNC', obj);
 		},
+		/*
 		cn(n){
 			n = n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			n = n.toString();
 			return n.replace(/1/g, "۱").replace(/2/g, "۲").replace(/3/g, "۳")
 				     .replace(/4/g, "۴").replace(/5/g, "۵").replace(/6/g, "۶")
 				     .replace(/7/g, "۷").replace(/8/g, "۸").replace(/9/g, "۹").replace(/0/g, "۰");
-		}
+		}*/
 	},
 	watch:{
 	}

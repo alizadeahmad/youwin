@@ -67,10 +67,10 @@
                         <span class="fs-10 rn">امتیاز: 4</span>
                     </div>
                 </div>
-                <div class="shop-info-more primary--text">
+                <nuxt-link to="/categorySelectInfo" class="shop-info-more primary--text">
                     <img src="/images/information.svg">
                     <p class="fs-10 mt--10">اطلاعات و نظرات</p>
-                </div>
+                </nuxt-link>
             </div>
 
             <div class="sub-categories gray--text">
@@ -89,7 +89,7 @@
                             <span class="pt-1">10-</span>
                             <span>%</span>
                         </span>
-                        <div>شیر پرچرب  هراز حجم 1 لیتر</div>
+                        <div><nuxt-link to="/prod" class="black--text">شیر پرچرب  هراز حجم 1 لیتر</nuxt-link></div>
                         <div class="mt-5">
                             <span class="fs-10 old-price">120000 ریال</span>
                             <span class="primary--text mr-2">110000 <span class="gray--text">ریال</span></span>
@@ -257,6 +257,9 @@ export default {
 }
 .product:last-child{
     border-bottom: 0;
+}
+.product a{
+    text-decoration: none;
 }
 .product-discount{
     position: absolute;

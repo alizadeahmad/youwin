@@ -88,17 +88,9 @@ export default {
     },
     data(){
         return{
-            vModel : '',
-            modal: false,
         }
     },
     methods:{
-        openModal(){
-            this.modal = true;
-        },
-        closeModal(){
-            this.modal = false;
-        }
     }
 };
 </script>
